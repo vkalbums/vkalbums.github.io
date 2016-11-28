@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+<script>
+	function addAlbumsLink() {
+		var url = document.getElementById("url").value;
+		var id = url.split(/.*id/)[1];
+		var albums = url + "?z=albums" + id;
+		var list = document.getElementById("list");
+		var li = document.createElement("li");
+		var link = document.createElement("a");
+		link.href = albums;
+		link.target = "_blank";
+		link.innerHTML = id;
+		li.appendChild(link);
+		list.insertBefore(li, list.firstChild);
+	}
+</script>
+</head>
+<body>
+<input id="url" style="width: 100%;" placeholder="Ctrl + V here..." onchange="addAlbumsLink();"></input>
+<ul id="list"></ul>
+</body>
+</html>
