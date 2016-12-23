@@ -2,7 +2,8 @@
 <head>
 <script>
 	function addAlbumsLink() {
-		var url = document.getElementById("url").value;
+		var urlInput = document.getElementById("url");
+		var url = urlInput.value;
 		var id = url.split(/.*id/)[1];
 		if (id === "" || id === undefined) return;
 		var albums = url + "?z=albums" + id;
@@ -14,6 +15,7 @@
 		link.innerHTML = id;
 		li.appendChild(link);
 		list.insertBefore(li, list.firstChild);
+		urlInput.value = "";
 	}
 </script>
 </head>
